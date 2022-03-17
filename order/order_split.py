@@ -2,19 +2,19 @@
 
 import sys
 
-from threading import main_thread
-
-from black import main
-
 
 def order_split(number, count, max_split):
+    """
+        input: number 量
+        input: count 次
+        output: array
+    """
     print(f"input: number:{number} count: {count}")
     ret = []
-    # number 量
-    # count 次
-    # sum = 0
-    sum = count / 2
-    # sum = count - 1
+
+    # sum = 0          # 前序
+    sum = count / 2    # 中序
+    # sum = count - 1  # 後序
     nn = 0
     for i in range(count):
         sum += number
@@ -25,6 +25,7 @@ def order_split(number, count, max_split):
             nn += 1
 
         if (nn > max_split):
+            # 超過最大分拆值
             return []
 
         ret.append(nn)
@@ -42,3 +43,4 @@ if __name__ == "__main__":
         sum += i
 
     print(f"sum: {sum}")
+    sys.exit(0)
